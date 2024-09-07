@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% block title %}Restaurant Search{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/styles.css">
+
+<div class="container-fluid">
+    <!-- Header Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(34, 34, 34);">
+        <a class="navbar-brand" href="#">Restaurant Finder</a>
+
+    <div class="row no-gutters">
+        <!-- Filter and Search Section -->
+        <div class="col-md-3 p-3" style="background-color: rgb(45, 45, 45); color: white;">
+            <h4 class="mt-2" style="color: wheat;">Search & Filter</h4>
+
+            <!-- Search by ID -->
+            <div class="form-group mt-3">
+                <label for="search-id">Search by ID</label>
+                <input type="number" id="search-id" class="form-control uniform-box"; style="background-color: rgb(221, 218, 218)" placeholder="Enter Restaurant ID">
+                <button id="search-id-btn" class="btn btn-primary btn-block mt-2 uniform-box">Search</button>
+            </div>
+
+            <!-- Search by Name -->
+            <div class="form-group mt-3">
+                <label for="search-name">Search by Name</label>
+                <input type="text" id="search-name" class="form-control uniform-box"; style="background-color: rgb(221, 218, 218)" placeholder="Enter Restaurant Name">
+            </div>
+
+            <!-- Search by Location -->
+            <div class="form-group mt-3">
+                <label>Search by Location</label>
+                <input type="number" id="latitude" class="form-control uniform-box mb-2"; style="background-color: rgb(221, 218, 218)" placeholder="Latitude">
+                <input type="number" id="longitude" class="form-control uniform-box mb-2"; style="background-color: rgb(221, 218, 218)" placeholder="Longitude">
+                <input type="number" id="radius" class="form-control uniform-box mb-2"; style="background-color: rgb(221, 218, 218)" placeholder="Radius (km)">
+                <button id="search-location-btn" class="btn btn-primary btn-block uniform-box">Search</button>
+            </div>
+
+            <!-- Search by Image -->
+            <div class="form-group mt-3">
+                <label>Search by Image</label>
+                <input type="file" id="search-image" class="form-control-file uniform-box"; style="background-color: rgb(221, 218, 218)">
+                <button id="search-image-btn" class="btn btn-primary btn-block mt-2 uniform-box">Search</button>
+            </div>
+
+            <!-- Filter Settings -->
+            <h5 class="mt-4" style="color: wheat;">Filter Settings</h5>
+            <form id="filter-form">
+                <!-- Country Dropdown -->
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" class="form-control uniform-box"; style="background-color: rgb(221, 218, 218)">
+                        <option value="">Select Country</option>
+                    </select>
+                </div>
+
+                <!-- Cuisine Dropdown -->
+                <div class="form-group">
+                    <label for="cuisine">Cuisine</label>
+                    <select id="cuisine" class="form-control uniform-box"; style="background-color: rgb(221, 218, 218)">
+                        <option value="">Select Cuisine</option>
+                    </select>
+                </div>
+
+                <!-- Min Spend -->
+                <div class="form-group">
+                    <label for="min-spend">Min Spend</label>
+                    <input type="number" id="min-spend" class="form-control uniform-box"; style="background-color: rgb(221, 218, 218)" placeholder="Minimum Spend">
+                </div>
+
+                <!-- Max Spend -->
+                <div class="form-group">
+                    <label for="max-spend">Max Spend</label>
+                    <input type="number" id="max-spend" class="form-control uniform-box"; style="background-color: rgb(221, 218, 218)" placeholder="Maximum Spend">
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block mt-2 uniform-box">Apply Filters</button>
+                <button type="button" class="btn btn-success btn-block mt-2 uniform-box" onclick="location.reload();">Clear Filters</button>
+
+            </form>
+        </div>
+
+        <!-- Restaurant List Section -->
+        <div class="col-md-12 p-0">
+            <div class="container-fluid mt-4">
+                <div id="restaurant-list" class="row">
+                    <!-- Restaurant cards will be populated here -->
+                </div>
+                <!-- Pagination Controls -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" id="prev-page">Previous</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" id="next-page">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS -->
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: rgb(240, 240, 240);
+    }
+
+    .navbar-brand {
+        color: rgb(255, 255, 255) !important;
+    }
+
+    .form-control, .btn {
+        border-radius: 0;
+    }
+
+    .uniform-box {
+        width: 100%;
+        min-height: 36px;
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        background-color: rgb(0, 123, 255);
+        border-color: rgb(0, 123, 255);
+    }
+
+    .btn-success {
+        background-color: rgb(40, 167, 69);
+        border-color: rgb(40, 167, 69);
+    }
+
+    .container-fluid {
+        padding: 0;
+    }
+
+    .restaurant-card {
+        margin-bottom: 20px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .card-img-top {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .pagination {
+        margin-top: 20px;
+    }
+
+    .col-md-9 {
+        background-color: rgb(255, 255, 255);
+        min-height: 100vh;
+    }
+</style>
+
+<script src="/static/js/main.js"></script>
+{% endblock %}

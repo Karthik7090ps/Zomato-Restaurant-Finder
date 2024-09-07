@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Search by Image{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="page-title">Search Restaurants by Food Image</h2>
+
+    <!-- Image Search Form -->
+    <form id="image-search-form" class="search-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="file" id="image" name="image" accept="image/*" class="form-control-file">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <!-- Image Search Results -->
+    <div id="image-search-results" class="search-results">
+        <!-- Results will be populated here dynamically -->
+    </div>
+</div>
+
+<script src="/static/js/image_search.js"></script>
+{% endblock %}

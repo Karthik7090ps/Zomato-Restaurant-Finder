@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{{ restaurant.name }} - Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="p-4 border rounded shadow-sm bg-light">
+                <h2 class="mb-3">{{ restaurant.name }}</h2>
+
+                <!-- Basic Information -->
+                <p><strong>Cuisine:</strong> {{ restaurant.cuisines }}</p>
+                <p><strong>Avg Spend:</strong> ${{ restaurant.avg_spend }}</p>
+                <p><strong>Location:</strong> {{ restaurant.locality_verbose }}</p>
+                <p><strong>Address:</strong> {{ restaurant.address }}</p>
+                <p><strong>City:</strong> {{ restaurant.city }}</p>
+                <p><strong>Country Code:</strong> {{ restaurant.country_code }}</p>
+
+                <!-- Coordinates -->
+                <p><strong>Coordinates:</strong> Latitude {{ restaurant.latitude }}, Longitude {{ restaurant.longitude }}</p>
+
+                <!-- Pricing and Rating Information -->
+                <p><strong>Price Range:</strong> {{ restaurant.price_range }}</p>
+                <p><strong>Average Spend:</strong> ${{ restaurant.avg_spend }}</p>
+                <p><strong>Currency:</strong> {{ restaurant.currency }}</p>
+
+                <!-- Ratings -->
+                <p><strong>Aggregate Rating:</strong> {{ restaurant.aggregate_rating }} / 5</p>
+                <p><strong>Rating:</strong> 
+                <span style="background-color: #0f0f; padding: 2px 5px; color: #ffffff; border-radius: 4px;">{{ restaurant.rating_text }}</span>
+                </p>
+                <p><strong>Votes:</strong> {{ restaurant.votes }}</p>
+
+                <!-- Availability -->
+                <p><strong>Table Booking Available:</strong> {{ 'Yes' if restaurant.has_table_booking else 'No' }}</p>
+                <p><strong>Online Delivery:</strong> {{ 'Yes' if restaurant.has_online_delivery else 'No' }}</p>
+                <p><strong>Delivering Now:</strong> {{ 'Yes' if restaurant.is_delivering_now else 'No' }}</p>
+                <p><strong>Order Menu Switch:</strong> {{ 'Yes' if restaurant.switch_to_order_menu else 'No' }}</p>
+            </div>
+        </div>
+
+        <!-- Add a placeholder for the restaurant image -->
+        <div class="col-md-4">
+            <div class="restaurant-image mb-4">
+                <img src="{{ restaurant.image_url or '/static/images/placeholder.png' }}" alt="{{ restaurant.name }}" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

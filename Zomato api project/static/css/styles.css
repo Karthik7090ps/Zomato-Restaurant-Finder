@@ -1,0 +1,157 @@
+/* General Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+}
+
+/* Filter Section */
+.filter-section {
+    background-color: rgba(240, 240, 240, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 300px;
+}
+
+.filter-section label {
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-section input, .filter-section select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-section button {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.filter-section button:hover {
+    background-color: #218838;
+}
+
+/* Restaurant Card Layout */
+#restaurant-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin-left: 350px; /* To account for the fixed filter section */
+    padding: 20px;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+button.btn-info {
+    background-color: rgb(63, 132, 197);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+button.btn-info:hover {
+    background-color: rgb(50, 115, 172);
+    color: white;
+}
+
+/* Pagination Controls */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pagination a {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #218838;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    #restaurant-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #restaurant-list {
+        grid-template-columns: 1fr;
+        margin-left: 0; /* Adjust for filter on smaller screens */
+    }
+
+    .filter-section {
+        width: 100%;
+        position: static;
+        margin-bottom: 20px;
+    }
+}
