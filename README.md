@@ -1,5 +1,12 @@
 # Restaurant Finder Web App
 
+![Screenshot 2024-09-08 011259](https://github.com/user-attachments/assets/889d66d4-ed66-4146-863a-37a2902538bd)
+
+![Screenshot 2024-09-08 011314](https://github.com/user-attachments/assets/2e1d57ef-86bf-4483-8778-ea4513c9e5f3)
+
+
+![Screenshot 2024-09-08 011250](https://github.com/user-attachments/assets/b891476b-c15a-4ef9-8d71-38e683335a91)
+
 This web application built with Flask allows users to search for restaurants, filter them by various criteria, and discover new dining options based on location and cuisine preferences.
 
 ## Features
